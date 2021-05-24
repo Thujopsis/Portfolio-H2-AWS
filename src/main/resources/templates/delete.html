@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ja"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <title>削除画面</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta charset="UTF-8"/>
+    <link th:href="@{/css/common.css}" rel="stylesheet"/>
+    <link th:href="@{/webjars/bootstrap/4.6.0-1/css/bootstrap.min.css}" rel="stylesheet"/>
+    <script th:src="@{/webjars/jquery/3.6.0/jquery.min.js}"></script>
+    <script th:src="@{/webjars/bootstrap/4.6.0-1/js/bootstrap.min.js}"></script>
+    <script th:src="@{/webjars/popper.js/1.12.9-1/popper.js}"></script>
+    <script th:src="@{/js/common.js}" rel="javascript" type="text/javascript"></script>
+</head>
+<body>
+<h1 th:text="削除画面"></h1>
+
+
+<main class="w-50">
+
+    <div class="container table-scroller">
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">名前</th>
+                <th scope="col">詳細</th>
+                <th scope="col">操作</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr scope="row" th:each="list : ${deleteList}">
+                <td th:text="${list.id}"></td>
+                <td th:text="${list.name}"></td>
+                <td th:text="${list.details}"></td>
+                <td>
+                    <button th:data-id="${list.id}" type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#delete-confirm">
+                        削除
+                    </button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="delete-confirm" tabindex="-1" role="dialog" aria-labelledby="deleteConfirmModalLabel" aria-hidden="true">
+        <form id="delete" th:action="@{/delete/{id}}" method="post">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="deleteConfirmModalLabel">確認</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+
+                    <div class="modal-body">
+                        データを削除します。　よろしいですか？
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">キャンセル</button>
+                        <input type="submit" class="btn btn-danger" form="delete" value="削除"/>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+
+</main>
+</body>
+</html>

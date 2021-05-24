@@ -1,0 +1,43 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>SpringBoot - テスト用画面</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta charset="UTF-8"/>
+
+    <link th:href="@{/css/common.css}" rel="stylesheet"/>
+    <link th:href="@{/webjars/bootstrap/4.6.0-1/css/bootstrap.min.css}" rel="stylesheet" />
+    <script th:src="@{/webjars/jquery/3.6.0/jquery.min.js}"></script>
+    <script th:src="@{/webjars/bootstrap/4.6.0-1/js/bootstrap.min.js}"></script>
+    <script th:src="@{/webjars/popper.js/1.12.9-1/popper.js}"></script>
+    <script th:src="@{/js/common.js}" rel="javascript" type="text/javascript"></script>
+
+</head>
+<body>
+
+<h1 th:text="'CRUDサンプル1'">見出し1</h1>
+<a href="login.html" class="btn btn-primary" th:href="@{/login}">ログイン</a>
+
+<main class="w-50">
+
+    <div class="container table-scroller">
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">名前</th>
+                <th scope="col">詳細</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr scope="row" th:each="list : ${dataList}">
+                <td th:text="${list.id}"></td>
+                <td th:text="${list.name}"></td>
+                <td th:text="${list.details}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</main>
+</body>
+</html>

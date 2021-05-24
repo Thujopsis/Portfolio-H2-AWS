@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="Needwork.Needwork2.Mapper.ListDataMapper">
+    <insert id="insert">
+        INSERT INTO list (name, details) VALUES (#{name}, #{details})
+    </insert>
+
+    <select id="select" parameterType="int" resultType="Needwork.Needwork2.Model.ListDataModel">
+        SELECT id,name,details FROM list WHERE id = #{id}
+    </select>
+
+    <select id="selectAll" resultType="Needwork.Needwork2.Model.ListDataModel">
+        SELECT id,name,details FROM list
+    </select>
+
+    <update id="update">
+        UPDATE list SET name = #{name}, details = #{details} WHERE id = #{id}
+    </update>
+
+    <delete id="delete">
+        DELETE FROM list WHERE id = #{id}
+    </delete>
+
+</mapper>
