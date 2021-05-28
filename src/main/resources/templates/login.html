@@ -19,6 +19,8 @@
 <form th:action="@{/login}" method="post">
     <p>ユーザID：admin </p>
     <p>パスワード:pass　でログインが出来ます。</p>
+    <p>対応方法不明のバグとして、初回ログイン時のみjavascriptの画面に遷移するバグがあります。</p>
+    <p>その場合は、一度ブラウザで戻った上で再度ログインし直してください。</p>
     <div th:if="${iserror}" style="color:red;">
         <p>ログインできませんでした。やりなおしてください。</p>
     </div>
