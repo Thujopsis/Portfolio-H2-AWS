@@ -19,4 +19,4 @@
 | InteliJ Idea Ultimate | 2019.5 |
 
 ### AWSインスタンス：
-http://needwork-env.eba-f6u255gm.ap-northeast-1.elasticbeanstalk.com
+http://needwork-env.eba-fx79dx2e.ap-northeast-1.elasticbeanstalk.com/home
